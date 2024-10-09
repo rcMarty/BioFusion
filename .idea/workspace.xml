@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="921febe8-a16d-43a0-8bf2-7c5051e35a5a" name="Changes" comment="Init commit (but also with blindsearch)">
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+    <list default="true" id="921febe8-a16d-43a0-8bf2-7c5051e35a5a" name="Changes" comment="rendered blindsearch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Render.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Render.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="32032" />
+    <option name="totalTimeSeconds" value="32637" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -121,7 +118,7 @@
       <workItem from="1728136963354" duration="1492000" />
       <workItem from="1728138461425" duration="8760000" />
       <workItem from="1728218659755" duration="24616000" />
-      <workItem from="1728489909583" duration="4381000" />
+      <workItem from="1728489909583" duration="4986000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit (but also with blindsearch)">
       <option name="closed" value="true" />
@@ -131,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728491501580</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="rendered blindsearch">
+      <option name="closed" value="true" />
+      <created>1728494673986</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1728494673986</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,7 +155,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init commit (but also with blindsearch)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init commit (but also with blindsearch)" />
+    <MESSAGE value="rendered blindsearch" />
+    <option name="LAST_COMMIT_MESSAGE" value="rendered blindsearch" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/pythonProject$main.coverage" NAME="main Coverage Results" MODIFIED="1728492155181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
