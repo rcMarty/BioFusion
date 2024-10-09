@@ -52,7 +52,6 @@ class Function:
         :param xx: -> np.array
         :return: -> float
         """
-        self.range = (-500, 500)
         d = len(xx)
         return 418.9829 * d - np.sum(xx * np.sin(np.sqrt(np.abs(xx))))
 
@@ -100,7 +99,6 @@ class Function:
         :param xx:
         :return:
         """
-        self.range = (-5.12, 5.12)
         d = len(xx)
         return 10 * d + np.sum(xx ** 2 - 10 * np.cos(2 * math.pi * xx))
 
@@ -124,7 +122,6 @@ class Function:
         :param xx: -> np.array
         :return: -> float
         """
-        self.range = (-600, 600)
         ii = np.arange(1, len(xx) + 1)
         sum = np.sum(xx ** 2 / 4000)
         prod = np.prod(np.cos(xx / np.sqrt(ii)))
@@ -145,7 +142,7 @@ class Function:
         :param xx: -> np.array
         :return: -> float
         """
-        self.range = (-10, 10)
+
         d = len(xx)
         w = 1 + (xx - 1) / 4
         term1 = (np.sin(math.pi * w[0])) ** 2  # R <- (sin(pi*w[1]))^2
@@ -179,7 +176,7 @@ class Function:
         :param m: -> int constant (optional with default value of 10)
         :return: -> float
         """
-        self.range = (0, math.pi)
+
         d = len(xx)
         i = np.arange(d) + 1
         return -np.sum(np.sin(xx) * np.sin(i * xx ** 2 / math.pi) ** (2 * m))
@@ -201,7 +198,7 @@ class Function:
         :param xx: -> np.array
         :return: -> float
         """
-        self.range = (-5, 10)
+
         d = len(xx)
         i = np.arange(d) + 1
         sum1 = np.sum(xx ** 2)

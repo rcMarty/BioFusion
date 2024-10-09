@@ -43,7 +43,7 @@ class Render:
             pts.append(self.ax.scatter(point.position[0], point.position[1], point.value, color='blue', alpha=1, s=1))
             # plt.pause(0.001)
         plt.savefig(f"../results/{function.__name__}.png")
-        plt.pause(1)
+        plt.pause(5)
         for pt in pts:
             pt.remove()
 
