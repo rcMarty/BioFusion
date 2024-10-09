@@ -1,7 +1,8 @@
 # Biologically Inspired Algorithms (BIA) Course
 
 [![Python version](https://img.shields.io/badge/python-3.12-blue.svg)](https://python.org)
-[![Python version](https://img.shields.io/badge/now_working_on-Blind_Search-purple.svg)](https://python.org)
+[![Python version](https://img.shields.io/badge/now_results_of-Blind_Search-purple.svg)](https://python.org)
+[![Python version](https://img.shields.io/badge/now_working_on-Hill_Climb-orange.svg)](https://python.org)
 
 Welcome to the Biologically Inspired Algorithms course! In this course, you’ll explore optimization techniques inspired
 by nature, implemented in Python.
