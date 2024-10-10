@@ -1,11 +1,11 @@
 from src.Functions import Function
 from src.Render import *
-from src.Result import Iteration, Position
+from src.Result import *
 
 
 class BlindSearch:
 
-    def __init__(self, functions: Function, repeat_count: int, population: int):
+    def __init__(self, functions: Function, repeat_count: int = 10, population: int = 100):
         self.functions: Function = functions
         self.repeat_count: int = repeat_count  # Number of iterations
         self.population: int = population  # Number of particles

@@ -1,3 +1,5 @@
+import random as pyrand
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -13,6 +15,7 @@ class Render:
         plt.switch_backend('tkagg')
         fig = plt.figure()
         self.ax = fig.add_subplot(111, projection='3d')
+        self.colors = ['red', 'blue', 'yellow', 'purple', 'orange', 'black', 'pink', 'brown', 'cyan', 'magenta']
 
     def render_graph(self, function: callable, clear: bool = False, time: int = 10):
         x = np.linspace(function.range[0], function.range[1], self.resolution)
@@ -20,9 +23,6 @@ class Render:
 
         X, Y = np.meshgrid(x, y)
         Z = np.zeros(X.shape)
-
-        print("X", X.shape)
-        print("Y", Y.shape)
 
         for i in range(X.shape[0]):
             for j in range(X.shape[1]):
@@ -32,27 +32,33 @@ class Render:
             plt.pause(time)
             self.ax.clear()
 
-    def render_iteration(self, iteration: Iteration, function: callable):
-
-        if function is not None:
-            self.render_graph(function)
+    def render_iteration(self, iteration: Iteration):
 
         pts = []
         best_pts = []
+
+        color = pyrand.choice(self.colors)
+
         for point in iteration.history:
-            pts.append(self.ax.scatter(point.position[0], point.position[1], point.value, color='blue', alpha=1, s=1))
+            pts.append(
+                self.ax.scatter(point.position[0], point.position[1], point.value, color=color, alpha=1,
+                                s=1))
             # plt.pause(0.001)
-        plt.savefig(f"../results/{function.__name__}.png")
-        plt.pause(5)
-        for pt in pts:
-            pt.remove()
 
         best_pts.append(
             self.ax.scatter(iteration.best.position[0], iteration.best.position[1], iteration.best.value,
                             color='green'))
-        plt.pause(10)
-        self.ax.clear()
+
+        plt.pause(1)
 
     def render(self, result: Result, function: callable):
+        if function is not None:
+            self.render_graph(function)
         for iteration in result.iterations:
-            self.render_iteration(iteration, function)
+            print(
+                f"Best position: {iteration.best.position} with value: {iteration.best.value} for function: {function.__name__}")
+            self.render_iteration(iteration)
+
+        plt.savefig(f"../results/{function.__name__}.png")
+        plt.pause(5)
+        self.ax.clear()
