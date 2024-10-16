@@ -11,17 +11,17 @@ by nature, implemented in Python.
 
 ### Algorithms covered in this course include:
 
-- Blind Search
-- Hill Climbing
-- Simulated Annealing
-- Genetic Algorithms (TSP)
-- Differential Evolution
-- Particle Swarm Optimization
-- Self-organizing Migration Algorithm
-- Ant Colony Optimization (TSP)
-- Firefly Algorithm
-- Teaching-learning Based Optimization
-- Multi-objective Optimization (NSGA II)
+- [x] Blind Search
+- [x] Hill Climbing
+- [ ] Simulated Annealing
+- [ ] Genetic Algorithms (TSP)
+- [ ] Differential Evolution
+- [ ] Particle Swarm Optimization
+- [ ] Self-organizing Migration Algorithm
+- [ ] Ant Colony Optimization (TSP)
+- [ ] Firefly Algorithm
+- [ ] Teaching-learning Based Optimization
+- [ ] Multi-objective Optimization (NSGA II)
 
 ### Algorithms are tested and visualised using these functions:
 
