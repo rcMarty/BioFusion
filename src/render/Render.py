@@ -3,7 +3,7 @@ import random as pyrand
 import matplotlib.pyplot as plt
 import numpy as np
 
-from src.Result import Result, Iteration
+from src.utils.Result import Result, Iteration
 from src.utils.Utils import singleton
 
 

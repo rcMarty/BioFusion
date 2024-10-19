@@ -1,6 +1,7 @@
 # Biologically Inspired Algorithms (BIA) Course
 
 [![Python version](https://img.shields.io/badge/python-3.12-blue.svg)](https://python.org)
+[![Python version](https://img.shields.io/github/commit-activity/m/rcMarty/BioFusion)](https://github.com/rcMarty/BioFusion/graphs/commit-activity)
 [![Python version](https://img.shields.io/badge/now_results_of-Hill_climb-purple.svg)]()
 [![Python version](https://img.shields.io/badge/now_working_on-Simulated_Annealing-orange.svg)]()
 

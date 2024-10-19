@@ -1,6 +1,6 @@
 from src.Functions import Function
-from src.Render import *
-from src.Result import *
+from src.render.Render import *
+from src.utils.Result import *
 
 
 class HillClimb:
