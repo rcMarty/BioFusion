@@ -10,12 +10,14 @@ from src.utils.Utils import singleton
 @singleton
 class Render:
 
-    def __init__(self, resolution: int = 100):
+    def __init__(self, resolution: int = 100, wait: float = 5, wait_iteration: float = 1):
         self.resolution = resolution
         plt.switch_backend('tkagg')
         fig = plt.figure()
         self.ax = fig.add_subplot(111, projection='3d')
         self.colors = ['red', 'blue', 'yellow', 'purple', 'orange', 'black', 'pink', 'brown', 'cyan', 'magenta']
+        self.wait = wait
+        self.wait_iteration = wait_iteration
 
     def render_graph(self, function: callable, clear: bool = False, time: int = 10):
         x = np.linspace(function.range[0], function.range[1], self.resolution)
@@ -49,7 +51,7 @@ class Render:
             self.ax.scatter(iteration.best.position[0], iteration.best.position[1], iteration.best.value,
                             color='green'))
 
-        plt.pause(1)
+        plt.pause(self.wait_iteration)
 
     def render(self, result: Result, function: callable):
         if function is not None:
@@ -60,5 +62,5 @@ class Render:
             self.render_iteration(iteration)
 
         plt.savefig(f"../results/{function.__name__}.png")
-        plt.pause(5)
+        plt.pause(self.wait)
         self.ax.clear()

@@ -102,7 +102,7 @@ class Function:
         d = len(xx)
         return 10 * d + np.sum(xx ** 2 - 10 * np.cos(2 * math.pi * xx))
 
-    @set_range((-600, 600))
+    @set_range((-50, 50))
     def griewank(self, xx: np.ndarray) -> float:
         """
         Description:
