@@ -15,7 +15,7 @@ by nature, implemented in Python.
 - [x] Blind Search
 - [x] Hill Climbing
 - [x] Simulated Annealing
-- [ ] Genetic Algorithms (TSP)
+- [x] Genetic Algorithms (TSP)
 - [ ] Differential Evolution
 - [ ] Particle Swarm Optimization
 - [ ] Self-organizing Migration Algorithm
@@ -25,6 +25,8 @@ by nature, implemented in Python.
 - [ ] Multi-objective Optimization (NSGA II)
 
 ### Algorithms are tested and visualised using these functions:
+
+*Only for first three algorithms (blind search, hill climb, simulated annealing)*
 
 - Sphere
 - Schwefel

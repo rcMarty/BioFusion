@@ -1,12 +1,12 @@
 from src.Functions import Function
-from src.render.Render import *
+from src.render.Render3D import *
 from src.utils.Result import *
 
 
 class SimAnnealing:
 
     # simulated annealing algorithm class
-    def __init__(self, functions: Function, initial_temp: float = 100, min_temp: float = 0.5, alpha: float = 0.98):
+    def __init__(self, functions: Function, initial_temp: float = 100, min_temp: float = 0.5, alpha: float = 0.95):
         """
         :param functions: Function object containing all functions to optimize
         :param initial_temp: Initial temperature for the annealing process
@@ -61,7 +61,7 @@ class SimAnnealing:
         return self.result
 
     def render(self, function: callable):
-        render = Render()
+        render = Render3D()
         if function in self.result:
             render.render(self.result[function], function)
         else:
@@ -69,6 +69,6 @@ class SimAnnealing:
             render.render(self.result[function], function)
 
     def render_all(self):
-        render = Render()
+        render = Render3D()
         for function in self.functions.get_all():
             render.render(self.result[function], function)

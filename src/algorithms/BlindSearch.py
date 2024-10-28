@@ -1,5 +1,5 @@
 from src.Functions import Function
-from src.render.Render import *
+from src.render.Render3D import *
 from src.utils.Result import *
 
 
@@ -34,10 +34,10 @@ class BlindSearch:
         return self.result
 
     def render(self, function: callable):
-        render = Render()
+        render = Render3D()
         render.render(self.result[function], function)
 
     def render_all(self):
-        render = Render()
+        render = Render3D()
         for function in self.functions.get_all():
             render.render(self.result[function], function)

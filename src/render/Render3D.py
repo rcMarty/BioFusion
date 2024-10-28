@@ -8,14 +8,18 @@ from src.utils.Utils import singleton
 
 
 @singleton
-class Render:
+class Render3D:
 
-    def __init__(self, resolution: int = 100, wait: float = 5, wait_iteration: float = 1):
+    def __init__(self, resolution: int = 100, wait: float = 5, wait_iteration: float = 1, new: bool = False,
+                 per_point: bool = False):
+        self.new = new
+        self.per_point = per_point
         self.resolution = resolution
         plt.switch_backend('tkagg')
-        fig = plt.figure()
-        self.ax = fig.add_subplot(111, projection='3d')
-        self.colors = ['red', 'blue', 'yellow', 'purple', 'orange', 'black', 'pink', 'brown', 'cyan', 'magenta']
+        if not new:
+            self.fig = plt.figure()
+            self.ax = self.fig.add_subplot(111, projection='3d')
+        self.colors = ['red', 'blue', 'purple', 'orange', 'black', 'pink', 'brown', 'magenta']
         self.wait = wait
         self.wait_iteration = wait_iteration
 
@@ -44,8 +48,9 @@ class Render:
         for point in iteration.history:
             pts.append(
                 self.ax.scatter(point.position[0], point.position[1], point.value, color=color, alpha=1,
-                                s=1))
-            # plt.pause(0.001)
+                                s=3))
+            if self.per_point:
+                plt.pause(self.wait_iteration / 10)
 
         best_pts.append(
             self.ax.scatter(iteration.best.position[0], iteration.best.position[1], iteration.best.value,
@@ -54,13 +59,25 @@ class Render:
         plt.pause(self.wait_iteration)
 
     def render(self, result: Result, function: callable):
+
+        if self.new:
+            self.fig = plt.figure()
+            self.ax = self.fig.add_subplot(111, projection='3d')
+
+        plt.title(function.__name__)
+
         if function is not None:
             self.render_graph(function)
         for iteration in result.iterations:
             print(
-                f"Best position: {iteration.best.position} with value: {iteration.best.value} for function: {function.__name__}")
+                f"Best position: {iteration.best_gen.position} with value: {iteration.best_gen.value} for function: {function.__name__}")
             self.render_iteration(iteration)
 
         plt.savefig(f"../results/{function.__name__}.png")
-        plt.pause(self.wait)
+
+        if self.new:
+            plt.show()
+        else:
+            plt.pause(self.wait)
+
         self.ax.clear()

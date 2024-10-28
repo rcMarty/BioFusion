@@ -181,7 +181,7 @@ class Function:
         i = np.arange(d) + 1
         return -np.sum(np.sin(xx) * np.sin(i * xx ** 2 / math.pi) ** (2 * m))
 
-    @set_range((-5, 10))
+    @set_range((-10, 10))
     def zakharov(self, xx: np.ndarray) -> float:
         """
         Description:

@@ -1,12 +1,14 @@
-import src.algorithms as alg
-from src.Functions import Function
-from src.render.Render import Render
+from src.algorithms import GeneticAlgorithm
 
 if __name__ == '__main__':
     # algorithm = alg.BlindSearch(Function())
-    Render(100, 0.0001, 0.0001)
-    algorithm = alg.SimAnnealing(Function())
-    algorithm.run_all()
-    algorithm.render_all()
+    # Render3D(100, 1, 0.0001, per_point=True)
+    # algorithm = alg.SimAnnealing(Function())
+    # algorithm.run_all()
+    # algorithm.render_all()
     # algorithm.render(Function().ackley)
     # algorithm.render(Function().rosenbrock)
+    algorithm = GeneticAlgorithm()
+    algorithm.run()
+    algorithm.render()
+    pass
