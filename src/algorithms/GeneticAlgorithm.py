@@ -1,3 +1,5 @@
+from copy import copy
+
 import numpy as np
 
 from src.render.Render2D import Render2D
@@ -17,12 +19,12 @@ def generate_points(num_points: int,
 
 class GeneticAlgorithm:
 
-    def __init__(self, cities: int = 10):
+    def __init__(self, cities: int = 10, population: int = 100, generations: int = 100, mutation_rate: float = 0.5):
         self.points: list[Point] = generate_points(cities)  # D number of "cities"
         self.no_of_cities: int = cities
-        self.population_size: int = 100  # NP size of population
-        self.generations: int = 400  # G
-        self.mutation_rate: float = 0.5
+        self.population_size: int = population  # NP size of population
+        self.generations: int = generations  # G
+        self.mutation_rate: float = mutation_rate
         self.result: Genetic = Genetic()
 
     def generate_generation(self) -> Generation:
@@ -58,7 +60,8 @@ class GeneticAlgorithm:
         for _ in range(self.generations):
             new_gen = Generation()
             for _ in range(self.population_size):
-                parent1, parent2 = np.random.choice(last_gen.individuals, 2, replace=False)
+                parent1 = copy(last_gen.best_ind)
+                parent2 = np.random.choice(last_gen.individuals, replace=False)
                 child = self.crossover(parent1, parent2)
                 self.mutate(child)
                 new_gen.add(child)

@@ -4,28 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="921febe8-a16d-43a0-8bf2-7c5051e35a5a" name="Changes" comment="simulated annealing">
-      <change afterPath="$PROJECT_DIR$/src/algorithms/GeneticAlgorithm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/render/Render2D.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/Genetic.py" afterDir="false" />
+    <list default="true" id="921febe8-a16d-43a0-8bf2-7c5051e35a5a" name="Changes" comment="genetic algorithm in progress">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/ackley.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/griewank.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/levy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/michalewicz.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/rastrigin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/rosenbrock.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/schwefel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sphere.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/zakharov.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/BlindSearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/BlindSearch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/HillClimb.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/HillClimb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/SimAnnealing.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/SimAnnealing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithms/GeneticAlgorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/GeneticAlgorithm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render/Render.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/Render3D.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/render/Render2D.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/Render2D.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="62251" />
+    <option name="totalTimeSeconds" value="64616" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -151,7 +135,7 @@
       <workItem from="1729112953404" duration="546000" />
       <workItem from="1729354655743" duration="11530000" />
       <workItem from="1729766915072" duration="5578000" />
-      <workItem from="1730124670739" duration="8567000" />
+      <workItem from="1730124670739" duration="11115000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit (but also with blindsearch)">
       <option name="closed" value="true" />
@@ -217,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729371972137</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="genetic algorithm in progress">
+      <option name="closed" value="true" />
+      <created>1730133455232</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1730133455233</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,9 +236,10 @@
     <MESSAGE value="Hill climb done &#10;and refactored Render.py" />
     <MESSAGE value="some little changes" />
     <MESSAGE value="simulated annealing" />
-    <option name="LAST_COMMIT_MESSAGE" value="simulated annealing" />
+    <MESSAGE value="genetic algorithm in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="genetic algorithm in progress" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/pythonProject$main.coverage" NAME="main Coverage Results" MODIFIED="1730133173569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/pythonProject$main.coverage" NAME="main Coverage Results" MODIFIED="1730135687321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>

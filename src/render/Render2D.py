@@ -30,15 +30,18 @@ class Render2D:
         self.ax.grid(True)
 
         # print individual fitness for points and lenght of path
-        print("Points: ", individual.points)
+        print("Points: ", individual.points.__repr__())
         print("Individual fitness: ", individual.fitness)
 
         # plt.show()
 
     def plot_generation(self, generation: list[Generation]):
         self.ax.clear()
-        for gen in generation:
+        for (index, gen) in enumerate(generation):
+            print(f"Generation {index + 1}")
             self.plot_individual(gen.best_ind)
+            if (index) % int((len(generation) / 5)) == 0:
+                plt.savefig(f'../results/generation_{index + 1}.png')  # Save the plot at each interval
             plt.pause(0.1)
             self.ax.clear()
 
