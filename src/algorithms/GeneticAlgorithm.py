@@ -1,3 +1,5 @@
+import pickle
+import sys
 from copy import copy
 
 import numpy as np
@@ -29,7 +31,7 @@ class GeneticAlgorithm:
 
     def generate_generation(self) -> Generation:
         generation = Generation()
-        for _ in range(self.no_of_cities):
+        for _ in range(self.population_size):
             individual = Individual()
             for point in self.points:
                 individual.add(point)
@@ -54,24 +56,49 @@ class GeneticAlgorithm:
             individual.points[idx1], individual.points[idx2] = individual.points[idx2], individual.points[idx1]
             individual.calculate_cost()
 
-    def run(self):
+    def print_progress(self):
+        progress = len(self.result.generations) / self.generations
+        bar_length = 100
+        filled_length = int(bar_length * progress)
+        bar = '#' * filled_length + '.' * (bar_length - filled_length)
+        percent = "{:.2f}".format(progress * 100)
+        sys.stdout.write('\r')
+        sys.stdout.write(f'[{bar}]  {percent.rjust(5, ' ')}')
+        sys.stdout.flush()
+
+    def run(self) -> Genetic:
         last_gen: Generation = self.result.add(self.generate_generation())
 
         for _ in range(self.generations):
             new_gen = Generation()
-            for _ in range(self.population_size):
-                parent1 = copy(last_gen.best_ind)
+            for j in range(self.population_size):
+                # parent1 = copy(last_gen.best_ind)
+                parent1 = copy(last_gen.individuals[j])
                 parent2 = np.random.choice(last_gen.individuals, replace=False)
                 child = self.crossover(parent1, parent2)
                 self.mutate(child)
-                new_gen.add(child)
+
+                new_gen.add(parent1)
+                if child < parent1:
+                    new_gen.individuals[j] = child
+
             last_gen = self.result.add(new_gen)
+            self.print_progress()
 
         best_individual = self.result.best_gen.get_best()
-        print(f"Best individual fitness: {best_individual.fitness}")
-        for point in best_individual.points:
-            print(f"Point {point.name}: ({point.x}, {point.y})")
+        print(f"\n\n\nBest individual fitness: {best_individual.fitness}")
+
+        return self.result
 
     def render(self):
         render = Render2D()
         render.plot_generation(self.result.generations)
+
+    def save(self, path: str, file_name: str):
+        with open(path + file_name + ".pkl", "wb+") as f:
+            pickle.dump(self, f)
+
+    @staticmethod
+    def load(path: str, file_name: str) -> 'GeneticAlgorithm':
+        with open(path + file_name + ".pkl", "rb") as f:
+            return pickle.load(f)

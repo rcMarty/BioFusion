@@ -8,7 +8,9 @@ if __name__ == '__main__':
     # algorithm.render_all()
     # algorithm.render(Function().ackley)
     # algorithm.render(Function().rosenbrock)
-    algorithm = GeneticAlgorithm(cities=30, population=100, generations=1000, mutation_rate=0.5)
+
+    algorithm = GeneticAlgorithm(cities=50, population=200, generations=1000, mutation_rate=0.5)
     algorithm.run()
+    algorithm.save("../results/", "data")
+    # algorithm = GeneticAlgorithm.load("../results/", "data")
     algorithm.render()
-    pass

@@ -2,7 +2,7 @@
 
 [![Python version](https://img.shields.io/badge/python-3.12-blue.svg)](https://python.org)
 [![Python version](https://img.shields.io/github/commit-activity/m/rcMarty/BioFusion)](https://github.com/rcMarty/BioFusion/graphs/commit-activity)
-[![Python version](https://img.shields.io/badge/now_results_of-Simulated_Annealing-purple.svg)]()
+[![Python version](https://img.shields.io/badge/now_results_of-Genetic_Algorithm-purple.svg)]()
 [![Python version](https://img.shields.io/badge/now_working_on-Differential_Evolution-orange.svg)]()
 
 Welcome to the Biologically Inspired Algorithms course! In this course, you’ll explore optimization techniques inspired
