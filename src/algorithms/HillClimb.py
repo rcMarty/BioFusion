@@ -49,12 +49,12 @@ class HillClimb:
     def render(self, function: callable):
         render = Render3D()
         if function in self.result:
-            render.render(self.result[function], function)
+            render.render3d(self.result[function], function)
         else:
             self.run_function(function)
-            render.render(self.result[function], function)
+            render.render3d(self.result[function], function)
 
     def render_all(self):
         render = Render3D()
         for function in self.functions.get_all():
-            render.render(self.result[function], function)
+            render.render3d(self.result[function], function)

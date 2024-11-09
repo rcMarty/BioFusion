@@ -1,4 +1,6 @@
-from src.algorithms import GeneticAlgorithm
+from src.Functions import Function
+from src.algorithms import *
+from src.render.Render3D import Render3D
 
 if __name__ == '__main__':
     # algorithm = alg.BlindSearch(Function())
@@ -9,8 +11,14 @@ if __name__ == '__main__':
     # algorithm.render(Function().ackley)
     # algorithm.render(Function().rosenbrock)
 
-    algorithm = GeneticAlgorithm(cities=50, population=200, generations=1000, mutation_rate=0.5)
-    algorithm.run()
-    algorithm.save("../results/", "data")
+    # algorithm = GeneticAlgorithm(cities=50, population=200, generations=1000, mutation_rate=0.5)
+    # algorithm.run()
+    # algorithm.save("../results/", "data")
     # algorithm = GeneticAlgorithm.load("../results/", "data")
-    algorithm.render()
+    # algorithm.render()
+
+    Render3D(wait_iteration=0.1, only_best=True)
+
+    algorithm = DifferentialEvolution(Function())
+    algorithm.run_all()
+    algorithm.render_all()
