@@ -4,16 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="921febe8-a16d-43a0-8bf2-7c5051e35a5a" name="Changes" comment="genetic algorithm really done">
+    <list default="true" id="921febe8-a16d-43a0-8bf2-7c5051e35a5a" name="Changes" comment="Differential evolution">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/BlindSearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/BlindSearch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/HillClimb.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/HillClimb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/SimAnnealing.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/SimAnnealing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/data.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/generation_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/generation_1001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/generation_201.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/generation_401.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/generation_601.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/generation_801.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithms/DifferentialEvolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/DifferentialEvolution.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render/Render3D.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/Render3D.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Result.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Result.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +22,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="87018" />
+    <option name="totalTimeSeconds" value="87623" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -146,7 +147,7 @@
       <workItem from="1730715659577" duration="1627000" />
       <workItem from="1730813564226" duration="3993000" />
       <workItem from="1730901525698" duration="4161000" />
-      <workItem from="1731157835887" duration="602000" />
+      <workItem from="1731157835887" duration="1206000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit (but also with blindsearch)">
       <option name="closed" value="true" />
@@ -236,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730554225896</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Differential evolution">
+      <option name="closed" value="true" />
+      <created>1731158522285</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1731158522285</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,14 +275,15 @@
     <MESSAGE value="genetic algorithm in progress" />
     <MESSAGE value="genetic algorithm done" />
     <MESSAGE value="genetic algorithm really done" />
-    <option name="LAST_COMMIT_MESSAGE" value="genetic algorithm really done" />
+    <MESSAGE value="Differential evolution" />
+    <option name="LAST_COMMIT_MESSAGE" value="Differential evolution" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/algorithms/DifferentialEvolution.py</url>
-          <line>102</line>
+          <line>109</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

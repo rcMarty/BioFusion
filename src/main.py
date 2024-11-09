@@ -21,4 +21,4 @@ if __name__ == '__main__':
 
     algorithm = DifferentialEvolution(Function())
     algorithm.run_all()
-    algorithm.render_all()
+    algorithm.render_all(is_2d=True)

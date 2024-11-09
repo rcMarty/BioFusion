@@ -115,5 +115,7 @@ class Render3D:
                 ax.scatter(point.position[0], point.position[1], color='red', marker='x')
             ax.scatter(iteration.best.position[0], iteration.best.position[1], color='green', s=100)
 
+        ax.scatter(best_position[1], best_position[2], color='blue', s=300)
+
         plt.savefig(f"../results/{function.__name__}_2d.png")
         plt.show()
