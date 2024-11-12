@@ -11,7 +11,8 @@ from src.utils.Utils import singleton
 class Render3D:
 
     def __init__(self, resolution: int = 100, wait: float = 5, wait_iteration: float = 1, new: bool = False,
-                 per_point: bool = False, only_best: bool = False):
+                 per_point: bool = False, only_best: bool = False, per_generation_animation: bool = False):
+        self.per_generation_animation = per_generation_animation
         self.new = new
         self.only_best = only_best
         self.per_point = per_point
@@ -62,6 +63,11 @@ class Render3D:
                             color='green', s=100))
 
         plt.pause(self.wait_iteration)
+
+        if self.per_generation_animation:
+            for pt in pts:
+                pt.remove()
+            best_pts[0].remove()
 
     def render3d(self, result: Result, function: callable):
 

@@ -17,8 +17,13 @@ if __name__ == '__main__':
     # algorithm = GeneticAlgorithm.load("../results/", "data")
     # algorithm.render()
 
-    Render3D(wait_iteration=0.1, only_best=True)
+    # Render3D(wait_iteration=0.1, only_best=True)
+    #
+    # algorithm = DifferentialEvolution(Function())
+    # algorithm.run_all()
+    # algorithm.render_all(is_2d=True)
 
-    algorithm = DifferentialEvolution(Function())
+    Render3D(per_generation_animation=True, wait_iteration=0.5)
+    algorithm = ParticleSwarmOptimization(Function())
     algorithm.run_all()
-    algorithm.render_all(is_2d=True)
+    algorithm.render_all()
