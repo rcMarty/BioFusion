@@ -25,7 +25,7 @@ class Iteration:
         self.history.append(position)
         if self.best.value == np.inf:
             self.best = position
-        if position.value < self.best.value:
+        if position.value <= self.best.value:
             self.best = position
         return self
 
@@ -54,7 +54,7 @@ class Result:
         if self.best.value == np.inf:
             self.best = iteration.best
         self.iterations.append(iteration)
-        if iteration.best.value < self.best.value:
+        if iteration.best.value <= self.best.value:
             self.best = iteration.best
         return self
 

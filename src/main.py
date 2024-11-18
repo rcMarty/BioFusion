@@ -23,7 +23,12 @@ if __name__ == '__main__':
     # algorithm.run_all()
     # algorithm.render_all(is_2d=True)
 
-    Render3D(per_generation_animation=True, wait_iteration=0.5)
-    algorithm = ParticleSwarmOptimization(Function())
+    # Render3D(per_generation_animation=True, wait_iteration=0.5)
+    # algorithm = ParticleSwarmOptimization(Function())
+    # algorithm.run_all()
+    # algorithm.render_all()
+
+    Render3D(per_generation_animation=True, only_best=False, as_surface=True, wait_iteration=0.5, new=True, )
+    algorithm = SelfOrganizingMigrationAlgorithm(Function())
     algorithm.run_all()
     algorithm.render_all()

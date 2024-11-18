@@ -79,24 +79,15 @@ class ParticleSwarmOptimization:
 
     def render(self, function: callable, is_2d: bool = False):
         render = Render3D()
-        if not is_2d:
-            if function in self.result:
-                render.render3d(self.result[function], function)
-            else:
-                self.run_function(function)
-                render.render3d(self.result[function], function)
+
+        if function in self.result:
+            render.render3d(self.result[function], function)
         else:
-            if function in self.result:
-                render.render2d(self.result[function], function)
-            else:
-                self.run_function(function)
-                render.render2d(self.result[function], function)
+            self.run_function(function)
+            render.render3d(self.result[function], function)
 
     def render_all(self, is_2d: bool = False):
         render = Render3D()
-        if not is_2d:
-            for function in self.functions.get_all():
-                render.render3d(self.result[function], function)
-        else:
-            for function in self.functions.get_all():
-                render.render2d(self.result[function], function)
+
+        for function in self.functions.get_all():
+            render.render3d(self.result[function], function)

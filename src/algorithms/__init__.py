@@ -5,7 +5,8 @@ from src.algorithms.DifferentialEvolution import DifferentialEvolution
 from src.algorithms.GeneticAlgorithm import GeneticAlgorithm
 from src.algorithms.HillClimb import HillClimb
 from src.algorithms.ParticleSwarm import ParticleSwarmOptimization
+from src.algorithms.SOMA import SelfOrganizingMigrationAlgorithm
 from src.algorithms.SimAnnealing import SimAnnealing
 
 __all__ = ['BlindSearch', 'HillClimb', 'SimAnnealing', 'GeneticAlgorithm', 'DifferentialEvolution',
-           'ParticleSwarmOptimization']
+           'ParticleSwarmOptimization', 'SelfOrganizingMigrationAlgorithm']
