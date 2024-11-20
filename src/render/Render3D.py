@@ -20,7 +20,7 @@ class Render3D:
         self.per_point = per_point
         self.resolution = resolution
         plt.switch_backend('TkAgg')
-        
+
         if not self.new:
             self.fig = plt.figure()
             self.ax = self.fig.add_subplot(111, projection='3d')
@@ -105,6 +105,7 @@ class Render3D:
             print(
                 f"Best position: {iteration.best.position} with value: {iteration.best.value} for function: {function.__name__}")
             self.render_iteration(iteration)
+
         if self.as_surface:
             self.ax.scatter(best_position[1], best_position[2], color='blue', s=300)
             plt.savefig(f"../results/{function.__name__}_2d.png")

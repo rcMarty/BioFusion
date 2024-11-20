@@ -28,7 +28,8 @@ if __name__ == '__main__':
     # algorithm.run_all()
     # algorithm.render_all()
 
-    Render3D(per_generation_animation=True, only_best=False, as_surface=True, wait_iteration=0.5, new=True, )
-    algorithm = SelfOrganizingMigrationAlgorithm(Function())
+    Render3D(per_generation_animation=False, only_best=False, as_surface=True, wait_iteration=0.1, new=False)
+    algorithm = SelfOrganizingMigrationAlgorithm(Function(), M_max=10)
+    # algorithm = ParticleSwarmOptimization(Function())
     algorithm.run_all()
-    algorithm.render_all()
+    algorithm.render(Function().zakharov)
