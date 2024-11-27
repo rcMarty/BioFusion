@@ -1,4 +1,5 @@
 import numpy as np
+from numpy import ndarray
 
 
 class Point:
@@ -18,18 +19,20 @@ class Individual:
     def __init__(self):
         self.points: list[Point] = []
         self.fitness: float = np.inf
+        self.feromones: ndarray = np.zeros((len(self.points), len(self.points)))
 
     def add(self, point: Point) -> Point:
         self.points.append(point)
         return point
 
     def calculate_cost(self):
-        self.fitness = 0
-        for i in range(len(self.points) - 1):
-            self.fitness += np.sqrt(
-                (self.points[i].x - self.points[i + 1].x) ** 2 + (self.points[i].y - self.points[i + 1].y) ** 2)
-        self.fitness += np.sqrt(
-            (self.points[0].x - self.points[-1].x) ** 2 + (self.points[0].y - self.points[-1].y) ** 2)
+        # for i in range(len(self.points) - 1):
+        #     self.fitness += np.sqrt( (self.points[i].x - self.points[i + 1].x) ** 2 + (self.points[i].y - self.points[i + 1].y) ** 2)
+        # self.fitness += np.sqrt( (self.points[0].x - self.points[-1].x) ** 2 + (self.points[0].y - self.points[-1].y) ** 2)
+
+        coords = np.array([(point.x, point.y) for point in self.points])
+        distances = np.sqrt(np.sum(np.diff(coords, axis=0, append=coords[:1]) ** 2, axis=1))
+        self.fitness = np.sum(distances)
 
     def __le__(self, other):
         return self.fitness <= other.fitness
@@ -91,3 +94,6 @@ class Genetic:
         if generation < self.best_gen:
             self.best_gen = generation
         return generation
+
+    def get_best(self) -> Individual:
+        return self.best_gen.get_best()

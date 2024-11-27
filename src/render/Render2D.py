@@ -6,10 +6,11 @@ from src.utils.Utils import singleton
 
 @singleton
 class Render2D:
-    def __init__(self):
+    def __init__(self, wait: float = 0.1):
         plt.switch_backend('tkagg')
         self.fig, self.ax = plt.subplots(figsize=(10, 6))
         self.index = 0
+        self.wait = wait
         # self.ax.set_xlim(0, 10)
         # self.ax.set_ylim(0, 10)
         # self.ax.set_aspect('equal')
@@ -25,8 +26,7 @@ class Render2D:
         for i, name in enumerate(names):
             self.ax.text(x_coords[i], y_coords[i], name, fontsize=12, ha='right')
 
-        self.ax.plot(x_coords + [x_coords[0]], y_coords + [y_coords[0]],
-                     color='red')  # Connect the last point to the first
+        self.ax.plot(x_coords + [x_coords[0]], y_coords + [y_coords[0]], color='red')  # Connect the last point to the first
 
         self.ax.set_xlabel('X Coordinate')
         self.ax.set_ylabel('Y Coordinate')
@@ -46,9 +46,9 @@ class Render2D:
             self.index = index
             # print(f"Generation {index + 1}")
             self.plot_individual(gen.best_ind)
-            if index % int((len(generation) / nth)) == 0:
+            if index % int(((len(generation) - 1) / nth)) == 0:
                 plt.savefig(f'../results/generation_{index + 1}.png')  # Save the plot at each interval
-            plt.pause(0.000001)
+            plt.pause(self.wait)
             self.ax.clear()
 
         # plt.show()

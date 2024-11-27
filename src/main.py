@@ -1,6 +1,5 @@
-from src.Functions import Function
 from src.algorithms import *
-from src.render.Render3D import Render3D
+from src.render.Render2D import Render2D
 
 if __name__ == '__main__':
     # algorithm = alg.BlindSearch(Function())
@@ -17,19 +16,15 @@ if __name__ == '__main__':
     # algorithm = GeneticAlgorithm.load("../results/", "data")
     # algorithm.render()
 
-    # Render3D(wait_iteration=0.1, only_best=True)
-    #
+    # Render3D(per_generation_animation=True, only_best=False, as_surface=True, wait_iteration=0.5, new=False)
+
     # algorithm = DifferentialEvolution(Function())
-    # algorithm.run_all()
-    # algorithm.render_all(is_2d=True)
 
-    # Render3D(per_generation_animation=True, wait_iteration=0.5)
     # algorithm = ParticleSwarmOptimization(Function())
-    # algorithm.run_all()
-    # algorithm.render_all()
 
-    Render3D(per_generation_animation=False, only_best=False, as_surface=True, wait_iteration=0.1, new=False)
-    algorithm = SelfOrganizingMigrationAlgorithm(Function(), M_max=10)
-    # algorithm = ParticleSwarmOptimization(Function())
-    algorithm.run_all()
-    algorithm.render(Function().zakharov)
+    Render2D()
+
+    algorithm = AntColonyOptimization(cities=60)
+
+    algorithm.run()
+    algorithm.render()

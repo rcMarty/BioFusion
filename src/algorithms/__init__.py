@@ -1,5 +1,6 @@
 print(f"src/algorithms/__init__.py")
 
+from src.algorithms.AntColonyOptimalization import AntColonyOptimization
 from src.algorithms.BlindSearch import BlindSearch
 from src.algorithms.DifferentialEvolution import DifferentialEvolution
 from src.algorithms.GeneticAlgorithm import GeneticAlgorithm
@@ -9,4 +10,4 @@ from src.algorithms.SOMA import SelfOrganizingMigrationAlgorithm
 from src.algorithms.SimAnnealing import SimAnnealing
 
 __all__ = ['BlindSearch', 'HillClimb', 'SimAnnealing', 'GeneticAlgorithm', 'DifferentialEvolution',
-           'ParticleSwarmOptimization', 'SelfOrganizingMigrationAlgorithm']
+           'ParticleSwarmOptimization', 'SelfOrganizingMigrationAlgorithm', 'AntColonyOptimization']

@@ -1,9 +1,9 @@
 # Biologically Inspired Algorithms (BIA) Course
 
 [![Python version](https://img.shields.io/badge/python-3.12-blue.svg)](https://python.org)
-[![Python version](https://img.shields.io/github/commit-activity/m/rcMarty/BioFusion)](https://github.com/rcMarty/BioFusion/graphs/commit-activity)
-[![Python version](https://img.shields.io/badge/now_results_of-SOMA-purple.svg)]()
-[![Python version](https://img.shields.io/badge/now_working_on-Ant_colony_Optimalization_(TSP)-orange.svg)]()
+[![Commit activity](https://img.shields.io/github/commit-activity/m/rcMarty/BioFusion)](https://github.com/rcMarty/BioFusion/graphs/commit-activity)
+[![Results of](https://img.shields.io/badge/now_results_of-Ant_Colony_Optimization_(TSP)-purple.svg)]()
+[![Working on](https://img.shields.io/badge/now_working_on-Firefly_Algorithm-orange.svg)]()
 
 Welcome to the Biologically Inspired Algorithms course! In this course, you’ll explore optimization techniques inspired
 by nature, implemented in Python.
@@ -19,7 +19,7 @@ by nature, implemented in Python.
 - [x] Differential Evolution
 - [x] Particle Swarm Optimization
 - [x] Self-organizing Migration Algorithm
-- [ ] Ant Colony Optimization (TSP)
+- [x] Ant Colony Optimization (TSP)
 - [ ] Firefly Algorithm
 - [ ] Teaching-learning Based Optimization
 - [ ] Multi-objective Optimization (NSGA II)
