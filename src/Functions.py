@@ -5,37 +5,24 @@ import math
 
 import numpy as np
 
-from src.utils.Utils import singleton, set_range
+from src.utils.Utils import singleton, set_range, functions_call_counter
 
 
 @singleton
 class Function:
 
-    def __init__(self):
-        self.range = None
+    def __init__(self, dimension=2):
+        self.dimension: int = dimension
 
     def get_all(self):
-        return [self.sphere, self.schwefel, self.rosenbrock, self.rastrigin, self.griewank, self.levy, self.michalewicz,
-                self.zakharov, self.ackley]
+        functions = [self.sphere, self.schwefel, self.rosenbrock, self.rastrigin, self.griewank, self.levy, self.michalewicz, self.zakharov, self.ackley]
+        for func in functions:
+            func = func.__func__  # Access the function object
+            func.dimension = self.dimension  # Add the attribute to each function
+        return functions
 
-    @set_range((-5.12, 5.12))
-    def sphere(self, xx: np.ndarray) -> float:
-        """
-        Description:
-            - Dimensions: length of array xx
-            - Search domain :[-5.12, 5.12]
-
-            The Sphere function has d local minima except for the global one. It is continuous, convex and unimodal. The plot shows its two-dimensional form.
-
-        Input Domain:
-            The function is usually evaluated on the hypercube xi ∈ [-5.12, 5.12], for all i = 1, …, d.
-
-        :param xx: -> np.array
-        :return: -> float
-        """
-        return np.sum(xx ** 2)
-
-    @set_range((-500, 500))
+    @set_range((-50, 50))
+    @functions_call_counter.count_calls
     def schwefel(self, xx: np.ndarray) -> float:
         """
         Description:
@@ -55,7 +42,28 @@ class Function:
         d = len(xx)
         return 418.9829 * d - np.sum(xx * np.sin(np.sqrt(np.abs(xx))))
 
+    @set_range((-5.12, 5.12))
+    @functions_call_counter.count_calls
+    def sphere(self, xx: np.ndarray) -> float:
+        """
+        Description:
+            - Dimensions: length of array xx
+            - Search domain :[-5.12, 5.12]
+
+            The Sphere function has d local minima except for the global one. It is continuous, convex and unimodal. The plot shows its two-dimensional form.
+
+        Input Domain:
+            The function is usually evaluated on the hypercube xi ∈ [-5.12, 5.12], for all i = 1, …, d.
+
+        :param xx: -> np.array
+        :return: -> float
+        """
+        return np.sum(xx ** 2)
+
+    # @functions_call_counter.count_calls
+
     @set_range((-10, 10))
+    @functions_call_counter.count_calls
     def rosenbrock(self, xx: np.ndarray) -> float:
         """
         Description:
@@ -83,6 +91,7 @@ class Function:
         return sum
 
     @set_range((-5.12, 5.12))
+    @functions_call_counter.count_calls
     def rastrigin(self, xx: np.ndarray) -> float:
         """
         Description:
@@ -103,6 +112,7 @@ class Function:
         return 10 * d + np.sum(xx ** 2 - 10 * np.cos(2 * math.pi * xx))
 
     @set_range((-50, 50))
+    @functions_call_counter.count_calls
     def griewank(self, xx: np.ndarray) -> float:
         """
         Description:
@@ -128,6 +138,7 @@ class Function:
         return sum - prod + 1
 
     @set_range((-10, 10))
+    @functions_call_counter.count_calls
     def levy(self, xx: np.ndarray) -> float:
         """
         Description:
@@ -154,6 +165,7 @@ class Function:
         return term1 + sum + term3
 
     @set_range((0, math.pi))
+    @functions_call_counter.count_calls
     def michalewicz(self, xx: np.ndarray, m=10) -> float:
         """
         Description:
@@ -182,6 +194,7 @@ class Function:
         return -np.sum(np.sin(xx) * np.sin(i * xx ** 2 / math.pi) ** (2 * m))
 
     @set_range((-10, 10))
+    @functions_call_counter.count_calls
     def zakharov(self, xx: np.ndarray) -> float:
         """
         Description:
@@ -206,6 +219,7 @@ class Function:
         return sum1 + sum2 ** 2 + sum2 ** 4
 
     @set_range((-32.768, 32.768))
+    @functions_call_counter.count_calls
     def ackley(self, xx: np.ndarray, a=20, b=0.2, c=(2 * math.pi)) -> float:
         """
         Description:

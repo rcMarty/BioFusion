@@ -1,6 +1,7 @@
 from src.Functions import Function
 from src.render.Render3D import *
 from src.utils.Result import *
+from src.utils.Utils import functions_call_counter
 
 
 def evaluate_population(population: list[ndarray], function: callable) -> Position:
@@ -16,10 +17,10 @@ def evaluate_population(population: list[ndarray], function: callable) -> Positi
 
 class SelfOrganizingMigrationAlgorithm:
 
-    def __init__(self, functions: Function, pop_size: int = 20, PRT: float = 0.4, path_length: float = 2.0, step: float = 0.11, M_max: int = 100, treshold: float = 1e-5):
+    def __init__(self, functions: Function, NP: int = 20, PRT: float = 0.4, path_length: float = 2.0, step: float = 0.11, M_max: int = 100, treshold: float = 1e-5):
         """
         :param functions:
-        :param pop_size: number of individuals in the population
+        :param NP: number of individuals in the population
         :param PRT: perturbation rate
         :param path_length: the length of the path in the search space
         :param step: the step size for each movement
@@ -27,7 +28,7 @@ class SelfOrganizingMigrationAlgorithm:
         :param treshold: the treshold for the algorithm to stop
         """
         self.functions: Function = functions
-        self.pop_size: int = pop_size
+        self.pop_size: int = NP
         self.PRT: float = PRT
         self.path_length: float = path_length
         self.step: float = step
@@ -36,8 +37,9 @@ class SelfOrganizingMigrationAlgorithm:
         self.result: dict[callable, Result] = {}
 
     def run_function(self, function: callable) -> Result:
+        dimension = function.dimension
         # Initialize population
-        population = np.random.uniform(low=function.range[0], high=function.range[1], size=(self.pop_size, len(function.range)))
+        population = np.random.uniform(low=function.range[0], high=function.range[1], size=(self.pop_size, dimension))
         fitness = np.apply_along_axis(function, 1, population)
         leader_index = np.argmin(fitness)
         leader = population[leader_index]
@@ -45,11 +47,13 @@ class SelfOrganizingMigrationAlgorithm:
         result = Result()
         for _ in range(self.M_max):
             iteration = Iteration()
-            for i in range(self.pop_size):
+            i = 0
+            while i < self.pop_size and functions_call_counter.get_counts(function) < functions_call_counter.get_max_calls():
                 if i == leader_index:
+                    i += 1
                     continue
                 for t in np.arange(0, self.path_length, self.step):
-                    PRT_vector = np.random.rand(len(function.range)) < self.PRT
+                    PRT_vector = np.random.rand(dimension) < self.PRT
                     new_position = population[i] + t * (leader - population[i]) * PRT_vector
                     new_position = np.clip(new_position, function.range[0], function.range[1])
                     new_fitness = function(new_position)
@@ -57,6 +61,7 @@ class SelfOrganizingMigrationAlgorithm:
                     if new_fitness < fitness[i]:
                         population[i] = new_position
                         fitness[i] = new_fitness
+                i += 1
 
             leader_index = np.argmin(fitness)
             leader = population[leader_index]

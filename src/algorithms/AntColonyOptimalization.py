@@ -77,12 +77,16 @@ class AntColonyOptimization:
         return individual
 
     def select_next_point(self, current_point: Point, unvisited: set) -> Point:
-        probabilities = []
-        for point in unvisited:
-            tau = self.pheromone[self.points.index(current_point)][self.points.index(point)] ** self.alpha
-            eta = (1 / self.distance(current_point, point)) ** self.beta
-            probabilities.append(tau * eta)
-        probabilities = np.array(probabilities) / sum(probabilities)
+        current_index = self.points.index(current_point)
+        unvisited_indices = [self.points.index(point) for point in unvisited]
+
+        tau = self.pheromone[current_index, unvisited_indices] ** self.alpha
+        distances = np.array([self.distance(current_point, self.points[i]) for i in unvisited_indices])
+        eta = (1 / distances) ** self.beta
+
+        probabilities = tau * eta
+        probabilities /= probabilities.sum()
+
         return np.random.choice(list(unvisited), p=probabilities)
 
     def update_pheromone(self, generation: Generation):

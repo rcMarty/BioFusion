@@ -20,8 +20,9 @@ class SimAnnealing:
         self.result: dict[callable, Result] = {}
 
     def run_function(self, function: callable) -> Result:
+        dimension = function.dimension
         T = self.initial_temp
-        location: ndarray = np.random.uniform(low=function.range[0], high=function.range[1], size=len(function.range))
+        location: ndarray = np.random.uniform(low=function.range[0], high=function.range[1], size=dimension)
         best_value = function(location)
         radius_in_percent_for_scale = (function.range[1] - function.range[0]) * 4 / 100
         result = Result()
@@ -31,7 +32,7 @@ class SimAnnealing:
         while T > self.min_temp:
 
             # x_1 = generate neighbour of x in normal distribution
-            new_location = np.random.normal(location, radius_in_percent_for_scale, size=len(function.range))
+            new_location = np.random.normal(location, radius_in_percent_for_scale, size=dimension)
             # Evaluate x_1
             new_value = function(new_location)
 

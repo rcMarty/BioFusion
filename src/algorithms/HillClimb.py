@@ -18,10 +18,11 @@ class HillClimb:
         self.result: dict[callable, Result] = {}
 
     def run_function(self, function: callable) -> Result:
+        dimension = function.dimension
         better = True
         radius_in_percent_for_scale = (function.range[1] - function.range[0]) * self.radius / 100
         location: ndarray = np.random.uniform(low=function.range[0], high=function.range[1],
-                                              size=len(function.range))
+                                              size=dimension)
         result = Result()
         while better:
             iteration = Iteration()

@@ -1,5 +1,5 @@
-from src.algorithms import *
-from src.render.Render2D import Render2D
+from src.Benchmark import Benchmark
+from src.render.Render3D import Render3D
 
 if __name__ == '__main__':
     # algorithm = alg.BlindSearch(Function())
@@ -16,15 +16,21 @@ if __name__ == '__main__':
     # algorithm = GeneticAlgorithm.load("../results/", "data")
     # algorithm.render()
 
-    # Render3D(per_generation_animation=True, only_best=False, as_surface=True, wait_iteration=0.5, new=False)
+    Render3D(per_generation_animation=True, only_best=False, as_surface=True, wait_iteration=0.5, new=False)
 
     # algorithm = DifferentialEvolution(Function())
 
     # algorithm = ParticleSwarmOptimization(Function())
 
-    Render2D()
+    # Render2D()
 
-    algorithm = AntColonyOptimization(cities=60)
+    # algorithm = TeachingLearningBasedOptimization(Function())
+    # algorithm = SelfOrganizingMigrationAlgorithm(Function())
+    # algorithm = FireflyAlgorithm(Function())
+    #
+    # algorithm.run_all()
+    # algorithm.render_all()
 
-    algorithm.run()
-    algorithm.render()
+    benchmark = Benchmark(NP=30, max_calls=3000, dimensions=30, number_of_tests=30)
+    benchmark.run()
+    benchmark.save()

@@ -3,6 +3,7 @@ from copy import deepcopy
 from src.Functions import Function
 from src.render.Render3D import *
 from src.utils.Result import *
+from src.utils.Utils import functions_call_counter
 
 
 def evaluate_population(population: list[ndarray], function: callable) -> Position:
@@ -36,12 +37,12 @@ class DifferentialEvolution:
         return np.random.choice(indices, 3, replace=False)
 
     def run_function(self, function: callable) -> Result:
-        dimension = len(function.range)
+        dimension = function.dimension
         pop = self.generate_population(function, dimension)
         g = 0
         result = Result()
 
-        while g < self.g_maxim:
+        while g < self.g_maxim and functions_call_counter.get_counts(function) < functions_call_counter.get_max_calls():
             new_pop = deepcopy(pop)
 
             iteration = Iteration()

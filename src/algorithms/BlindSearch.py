@@ -18,7 +18,7 @@ class BlindSearch:
         for i in range(self.repeat_count):
             for j in range(self.population):
 
-                xx = np.random.uniform(low=function.range[0], high=function.range[1], size=len(function.range))
+                xx = np.random.uniform(low=function.range[0], high=function.range[1], size=function.dimension)
                 result = function(xx)
                 iteration.add_position(Position(result, xx))
 
